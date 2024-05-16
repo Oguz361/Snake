@@ -1,14 +1,10 @@
 class DataService {
-  static async getHelloWorld(): Promise<string> {
-    return "Hello World!";
+  getSnakeText(): Promise<string> {
+    return Promise.resolve("Snake");
   }
 
-  static async getGreeting(name: string): Promise<string> {
-    return `Hallo ${name}! Willkommen zurück!`;
-  }
-
-  static async getCustomMessage(customMessage: string): Promise<string> {
-    return customMessage;
+  getHelloText(): Promise<string> {
+    return Promise.resolve("Hello World");
   }
 }
 
