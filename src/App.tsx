@@ -23,6 +23,7 @@ function App() {
       <div className="HW">
         <h2>{helloText}</h2>
       </div>
+      <button onClick={() => methodDoesNotExist()}>Break the world</button>
     </div>
   );
 }
