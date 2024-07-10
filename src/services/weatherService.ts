@@ -10,6 +10,7 @@ export interface WeatherData {
     temp_max: number;
     temp_min: number;
     feels_like: number;
+    pressure: number;
   };
   weather: Array<{
     description: string;
@@ -19,6 +20,10 @@ export interface WeatherData {
     speed: number;
   };
   name: string;
+  visibility: number;
+  clouds: {
+    all: number;
+  };
 }
 
 export interface ForecastData {
@@ -58,7 +63,8 @@ export const getForecast = async (city: string): Promise<ForecastData> => {
         q: city,
         appid: API_KEY,
         units: 'metric',
-        lang: 'en'
+        lang: 'en',
+        cnt: 40 // This gives us a 5-day forecast with 3-hour intervals
       }
     });
     return response.data;

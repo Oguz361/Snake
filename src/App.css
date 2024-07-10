@@ -53,8 +53,24 @@ body, html {
 }
 
 .comic-input, .comic-button {
+  font-family: 'Comic Sans MS', cursive;
   border: 2px solid #000;
   box-shadow: 3px 3px 0px #000;
+  background-color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #000; 
+}
+
+.comic-button {
+  padding: 8px 15px;
+  color: #000;
+  font-weight: bold;
+}
+
+.comic-button:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0px #000;
 }
 
 .comic-panel {
@@ -62,34 +78,99 @@ body, html {
   box-shadow: 3px 3px 0px #000;
   margin: 10px 0;
   padding: 10px;
+  border-radius: 15px;
+  position: relative;
+  overflow: hidden;
+}
+
+.comic-panel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('data:image/svg+xml;utf8,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="1.5" fill="%23000000" fill-opacity="0.1"/></svg>');
+  background-size: 20px 20px;
+  pointer-events: none;
 }
 
 .comic-text {
   font-weight: bold;
   color: #000;
+  text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.weather-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.weather-item {
+  text-align: center;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.weather-item:hover {
+  transform: translateY(-5px);
+}
+
+.comic-text.large {
+  font-size: 1.5em;
+}
+
+.comic-icon {
+  filter: drop-shadow(2px 2px 0 rgba(0, 0, 0, 0.3));
+}
+
+.comic-icon.large {
+  width: 64px;
+  height: 64px;
 }
 
 .forecast-container {
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
+  gap: 15px;
+  overflow-x: auto;
+  padding-bottom: 10px;
 }
 
 .forecast-item {
-  flex: 1;
-  min-width: 100px;
-  margin: 5px;
+  flex: 0 0 auto;
+  width: 150px;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.comic-icon {
-  filter: grayscale(100%) contrast(200%);
+.day-details {
+  margin-top: 20px;
 }
 
 .error {
   color: red;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
+  .weather-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .weather-grid {
+    grid-template-columns: 1fr;
+  }
+  
   .header {
     flex-direction: column;
     align-items: stretch;
@@ -102,5 +183,9 @@ body, html {
 
   .search-form {
     justify-content: center;
+  }
+
+  .forecast-item {
+    width: 120px;
   }
 }
