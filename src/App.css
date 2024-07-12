@@ -228,3 +228,20 @@ body, html {
     width: 120px;
   }
 }
+
+.weather-app {
+  position: relative;
+  z-index: 1;
+}
+
+.animated-background {
+  z-index: 0;
+}
+
+.header,
+.weather-info,
+.forecast-container,
+.day-details {
+  position: relative;
+  z-index: 2;
+}

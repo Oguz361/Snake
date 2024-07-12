@@ -5,6 +5,8 @@ import {
   getForecast,
   ForecastData,
 } from "../services/weatherService";
+import AnimatedBackground from "./AnimatedBackground";
+import ComicSpeechBubble from "./ComicSpeechBubble";
 
 const WeatherApp: React.FC = () => {
   const [city, setCity] = useState<string>("");
@@ -54,6 +56,8 @@ const WeatherApp: React.FC = () => {
 
   return (
     <div className="weather-app comic-style">
+      <AnimatedBackground />
+      {!weather && !loading && <ComicSpeechBubble />}
       <div className="header">
         <h1 className="comic-title">Comic Weather</h1>
         <form onSubmit={handleSearch} className="search-form">
