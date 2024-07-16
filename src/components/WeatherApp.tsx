@@ -8,6 +8,7 @@ import {
 import AnimatedBackground from "./AnimatedBackground";
 import ComicSpeechBubble from "./ComicSpeechBubble";
 
+// Hauptkomponente der Wetter-App
 const WeatherApp: React.FC = () => {
   const [city, setCity] = useState<string>("");
   const [weather, setWeather] = useState<WeatherData | null>(null);
@@ -16,6 +17,7 @@ const WeatherApp: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const [selectedDay, setSelectedDay] = useState<number | null>(null);
 
+  // Handler für die Suchfunktion
   const handleSearch = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
@@ -33,6 +35,7 @@ const WeatherApp: React.FC = () => {
     }
   };
 
+  // Funktion zur Ermittlung des Wochentages
   const getDayOfWeek = (date: Date): string => {
     const days = [
       "Sunday",
@@ -46,12 +49,13 @@ const WeatherApp: React.FC = () => {
     return days[date.getDay()];
   };
 
+  // Funktion zur Ermittlung der Hintergrundfarbe basierend auf der Temperatur
   const getBackgroundColor = (temp: number): string => {
-    if (temp > 30) return "linear-gradient(135deg, #FF6B6B, #FFD93D)"; // Hot
+    if (temp > 30) return "linear-gradient(135deg, #FF6B6B, #FFD93D)"; // Heiß
     if (temp > 20) return "linear-gradient(135deg, #FFD93D, #6BCB77)"; // Warm
     if (temp > 10) return "linear-gradient(135deg, #6BCB77, #4D96FF)"; // Mild
-    if (temp > 0) return "linear-gradient(135deg, #4D96FF, #93BFCF)"; // Cool
-    return "linear-gradient(135deg, #93BFCF, #DDDDDD)"; // Cold
+    if (temp > 0) return "linear-gradient(135deg, #4D96FF, #93BFCF)"; // Kühl
+    return "linear-gradient(135deg, #93BFCF, #DDDDDD)"; // Kalt
   };
 
   return (
