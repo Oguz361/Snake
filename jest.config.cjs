@@ -18,6 +18,8 @@ module.exports = {
     'src/**/*.{ts,tsx}',
     '!src/**/*.d.ts',
     '!src/index.tsx', 
+    '!src/App.tsx',  
+    '!src/main.tsx',
   ],
   coverageReporters: ['json', 'lcov', 'text', 'clover'],
 };
