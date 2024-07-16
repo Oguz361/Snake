@@ -3,6 +3,8 @@ import axios from 'axios';
 const API_KEY = import.meta.env.VITE_OPENWEATHER_API_KEY;
 const BASE_URL = 'https://api.openweathermap.org/data/2.5';
 
+// In weatherService.ts
+
 export interface WeatherData {
   main: {
     temp: number;
@@ -31,11 +33,23 @@ export interface ForecastData {
     dt: number;
     main: {
       temp: number;
+      humidity: number;
+      temp_max: number;
+      temp_min: number;
+      feels_like: number;
+      pressure: number;
     };
     weather: Array<{
       description: string;
       icon: string;
     }>;
+    wind: {
+      speed: number;
+    };
+    visibility: number;
+    clouds: {
+      all: number;
+    };
   }>;
 }
 

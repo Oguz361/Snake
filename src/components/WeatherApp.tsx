@@ -58,6 +58,71 @@ const WeatherApp: React.FC = () => {
     return "linear-gradient(135deg, #93BFCF, #DDDDDD)"; // Kalt
   };
 
+  const renderWeatherInfo = (data: WeatherData | ForecastData['list'][0], isCurrentDay: boolean = true) => (
+    <div
+      className="weather-info comic-panel"
+      style={{ backgroundImage: getBackgroundColor(data.main.temp) }}
+    >
+      <h2 className="comic-text">
+        {isCurrentDay
+          ? (data as WeatherData).name
+          : getDayOfWeek(new Date((data as ForecastData['list'][0]).dt * 1000))}
+      </h2>
+      <p className="comic-text large current-temp">
+        {Math.round(data.main.temp)}°C
+      </p>
+
+      <div className="weather-grid">
+        <div className="weather-item">
+          <p className="comic-text">Feels like</p>
+          <p className="comic-text large">
+            {Math.round(data.main.feels_like)}°C
+          </p>
+        </div>
+        <div className="weather-item">
+          <p className="comic-text">Weather</p>
+          <p className="comic-text">{data.weather[0].description}</p>
+          <img
+            src={`http://openweathermap.org/img/w/${data.weather[0].icon}.png`}
+            alt="Weather Icon"
+            className="comic-icon large"
+          />
+        </div>
+        <div className="weather-item">
+          <p className="comic-text">Humidity</p>
+          <p className="comic-text large">{data.main.humidity}%</p>
+        </div>
+        <div className="weather-item">
+          <p className="comic-text">Wind Speed</p>
+          <p className="comic-text large">
+            {Math.round(data.wind.speed * 3.6)} km/h
+          </p>
+        </div>
+        <div className="weather-item">
+          <p className="comic-text">Pressure</p>
+          <p className="comic-text large">{data.main.pressure} hPa</p>
+        </div>
+        <div className="weather-item">
+          <p className="comic-text">Visibility</p>
+          <p className="comic-text large">
+            {data.visibility / 1000} km
+          </p>
+        </div>
+        <div className="weather-item">
+          <p className="comic-text">Cloudiness</p>
+          <p className="comic-text large">{data.clouds.all}%</p>
+        </div>
+        <div className="weather-item">
+          <p className="comic-text">High / Low</p>
+          <p className="comic-text">
+            {Math.round(data.main.temp_max)}°C /{" "}
+            {Math.round(data.main.temp_min)}°C
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+
   return (
     <div className="weather-app comic-style">
       <AnimatedBackground />
@@ -81,86 +146,9 @@ const WeatherApp: React.FC = () => {
       {loading && <p className="comic-text">Loading...</p>}
       {error && <p className="comic-text error">{error}</p>}
 
-      {weather && (
-        <div
-          className="weather-info comic-panel"
-          style={{ backgroundImage: getBackgroundColor(weather.main.temp) }}
-        >
-          <h2 className="comic-text">{weather.name}</h2>
-          <p className="comic-text large current-temp">
-            {Math.round(weather.main.temp)}°C
-          </p>
-
-          <div className="hourly-forecast-container">
-            <div className="hourly-forecast">
-              {forecast &&
-                forecast.list.slice(0, 24).map((item, index) => (
-                  <div key={index} className="hourly-item">
-                    <p className="comic-text">
-                      {new Date(item.dt * 1000).toLocaleTimeString([], {
-                        hour: "2-digit",
-                        minute: "2-digit",
-                      })}
-                    </p>
-                    <img
-                      src={`http://openweathermap.org/img/w/${item.weather[0].icon}.png`}
-                      alt="Weather Icon"
-                      className="comic-icon"
-                    />
-                    <p className="comic-text">{Math.round(item.main.temp)}°C</p>
-                  </div>
-                ))}
-            </div>
-          </div>
-
-          <div className="weather-grid">
-            <div className="weather-item">
-              <p className="comic-text">Feels like</p>
-              <p className="comic-text large">
-                {Math.round(weather.main.feels_like)}°C
-              </p>
-            </div>
-            <div className="weather-item">
-              <p className="comic-text">Weather</p>
-              <p className="comic-text">{weather.weather[0].description}</p>
-              <img
-                src={`http://openweathermap.org/img/w/${weather.weather[0].icon}.png`}
-                alt="Weather Icon"
-                className="comic-icon large"
-              />
-            </div>
-            <div className="weather-item">
-              <p className="comic-text">Humidity</p>
-              <p className="comic-text large">{weather.main.humidity}%</p>
-            </div>
-            <div className="weather-item">
-              <p className="comic-text">Wind Speed</p>
-              <p className="comic-text large">
-                {Math.round(weather.wind.speed * 3.6)} km/h
-              </p>
-            </div>
-            <div className="weather-item">
-              <p className="comic-text">Pressure</p>
-              <p className="comic-text large">{weather.main.pressure} hPa</p>
-            </div>
-            <div className="weather-item">
-              <p className="comic-text">Visibility</p>
-              <p className="comic-text large">{weather.visibility / 1000} km</p>
-            </div>
-            <div className="weather-item">
-              <p className="comic-text">Cloudiness</p>
-              <p className="comic-text large">{weather.clouds.all}%</p>
-            </div>
-            <div className="weather-item">
-              <p className="comic-text">High / Low</p>
-              <p className="comic-text">
-                {Math.round(weather.main.temp_max)}°C /{" "}
-                {Math.round(weather.main.temp_min)}°C
-              </p>
-            </div>
-          </div>
-        </div>
-      )}
+    {weather && selectedDay === null && renderWeatherInfo(weather)}
+    
+      {forecast && selectedDay !== null && renderWeatherInfo(forecast.list[selectedDay * 8], false)}
 
       {forecast && (
         <div className="forecast-container">
@@ -194,43 +182,10 @@ const WeatherApp: React.FC = () => {
         </div>
       )}
 
-      {selectedDay !== null && forecast && (
-        <div
-          className="day-details comic-panel"
-          style={{
-            backgroundImage: getBackgroundColor(
-              forecast.list[selectedDay * 8].main.temp
-            ),
-          }}
-        >
-          <h3 className="comic-text">
-            {getDayOfWeek(new Date(forecast.list[selectedDay * 8].dt * 1000))}
-          </h3>
-          <div className="weather-grid">
-            {forecast.list
-              .slice(selectedDay * 8, (selectedDay + 1) * 8)
-              .map((item, index) => (
-                <div key={index} className="weather-item">
-                  <p className="comic-text">
-                    {new Date(item.dt * 1000).toLocaleTimeString([], {
-                      hour: "2-digit",
-                      minute: "2-digit",
-                    })}
-                  </p>
-                  <img
-                    src={`http://openweathermap.org/img/w/${item.weather[0].icon}.png`}
-                    alt="Weather Icon"
-                    className="comic-icon"
-                  />
-                  <p className="comic-text">{Math.round(item.main.temp)}°C</p>
-                  <p className="comic-text">{item.weather[0].description}</p>
-                </div>
-              ))}
-          </div>
-          <button className="comic-button" onClick={() => setSelectedDay(null)}>
-            Close
-          </button>
-        </div>
+      {selectedDay !== null && (
+        <button className="comic-button" onClick={() => setSelectedDay(null)}>
+          Back to Current Day
+        </button>
       )}
     </div>
   );
