@@ -158,6 +158,7 @@ Diese Tests decken den gesamten Anwendungsablauf ab, simulieren Benutzerinterakt
 ### Test-Suite-Einrichtung
 - Verwendet Cypress für E2E-Tests.
 - Geht davon aus, dass die Anwendung auf `http://localhost:5173` läuft.
+- Den Befehl npx cypress open ausführen wenn cypress bereits installiert ist, sonst mit npx cypress install vorher installieren.
 
 ### Testfälle
 1. **Hauptseiten-Ladung**: Überprüft, ob die Hauptseite korrekt geladen wird.
