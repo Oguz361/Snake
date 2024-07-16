@@ -89,3 +89,91 @@ These: Eine gut strukturierte und modulare Codebasis erleichtert die Wartung und
 Trennung der verschiedenen Komponenten (AnimatedBackground, ComicSpeechBubble, WeatherApp, WeatherService) in separate Dateien, um eine klare Struktur zu gewährleisten.
 Einhaltung von Clean Code-Prinzipien und Kommentierung, um den Code verständlich zu machen.
 
+# Wetter-App Testdokumentation
+
+## Inhaltsverzeichnis
+1. [Einleitung](#einleitung)
+2. [WeatherApp Komponententests](#weatherapp-komponententests)
+   1. [Test-Suite-Einrichtung](#test-suite-einrichtung)
+   2. [Testfälle](#testfälle)
+   3. [Hauptüberprüfungen](#hauptüberprüfungen)
+3. [ComicSpeechBubble Komponententests](#comicspeechbubble-komponententests)
+   1. [Test-Suite-Einrichtung](#test-suite-einrichtung-1)
+   2. [Testfälle](#testfälle-1)
+   3. [Hauptüberprüfungen](#hauptüberprüfungen-1)
+4. [End-to-End (E2E) Tests](#end-to-end-e2e-tests)
+   1. [Test-Suite-Einrichtung](#test-suite-einrichtung-2)
+   2. [Testfälle](#testfälle-2)
+   3. [Hauptüberprüfungen](#hauptüberprüfungen-2)
+5. [Fazit](#fazit)
+
+## Einleitung
+Dieses Dokument bietet einen Überblick über die Testsuiten für das Wetter-App-Projekt, einschließlich Unit-Tests für einzelne Komponenten und End-to-End (E2E) Tests für die gesamte Anwendung.
+
+## WeatherApp Komponententests
+Diese Tests konzentrieren sich auf die Haupt-`WeatherApp`-Komponente, die für das Abrufen und Anzeigen von Wetterdaten verantwortlich ist.
+
+### Test-Suite-Einrichtung
+- Die Tests verwenden React Testing Library und Jest.
+- API-Aufrufe werden mit Jest's Mocking-Fähigkeiten simuliert.
+- Mock-Daten für Wetter und Vorhersage werden bereitgestellt.
+
+### Testfälle
+1. **Render-Prüfung**: Stellt sicher, dass die Komponente ohne Absturz rendert.
+2. **Wetterdaten Abruf und Anzeige**: Überprüft, ob Wetterdaten korrekt abgerufen und angezeigt werden.
+3. **Fehlerbehandlung**: Prüft, ob eine Fehlermeldung angezeigt wird, wenn der Abruf von Wetterdaten fehlschlägt.
+4. **Stündliche Vorhersage-Rendering**: Bestätigt, dass die stündliche Vorhersage korrekt gerendert wird.
+5. **Stadt nicht gefunden Fehler**: Stellt sicher, dass Fehler bei unbekannten Städten korrekt behandelt werden.
+6. **Initialer Zustand Rendering**: Überprüft die korrekte Darstellung des Anfangszustands.
+7. **Ladeindikator**: Prüft, ob der Ladeindikator während des Datenabrufs angezeigt wird.
+
+### Hauptüberprüfungen
+- Vorhandensein von Eingabefeld und Suchbutton.
+- Korrekte Anzeige von Wetterdaten (Temperatur, Beschreibung, Stadtname).
+- Anzeige von Fehlermeldungen bei API-Fehlern.
+- Vorhandensein mehrerer Vorhersageelemente.
+
+## ComicSpeechBubble Komponententests
+Diese Tests konzentrieren sich auf die `ComicSpeechBubble`-Komponente, die wetterbezogene Phrasen in einer Comic-Sprechblase anzeigt.
+
+### Test-Suite-Einrichtung
+- Verwendet React Testing Library und Jest.
+- Ein vordefiniertes Array von Wetterphrasen wird für Tests verwendet.
+
+### Testfälle
+1. **Render-Prüfung**: Stellt sicher, dass die Komponente ohne Absturz rendert.
+2. **Initiale Phrasenanzeige**: Überprüft, ob die anfängliche Phrase korrekt angezeigt wird.
+3. **Phraseninhalt-Verifizierung**: Prüft, ob die angezeigte Phrase aus dem vordefinierten Array stammt.
+4. **Timer-Bereinigung**: Stellt sicher, dass der Timer beim Unmounten der Komponente bereinigt wird.
+5. **Phrasenrotation**: Überprüft, ob die Komponente immer eine der vordefinierten Phrasen anzeigt.
+
+### Hauptüberprüfungen
+- Vorhandensein des Sprechblasen-Elements.
+- Korrekter Inhalt der Sprechblase.
+- Ordnungsgemäße Bereinigung von Timern zur Vermeidung von Speicherlecks.
+
+## End-to-End (E2E) Tests
+Diese Tests decken den gesamten Anwendungsablauf ab, simulieren Benutzerinteraktionen und überprüfen die erwarteten Ergebnisse.
+
+### Test-Suite-Einrichtung
+- Verwendet Cypress für E2E-Tests.
+- Geht davon aus, dass die Anwendung auf `http://localhost:5173` läuft.
+
+### Testfälle
+1. **Hauptseiten-Ladung**: Überprüft, ob die Hauptseite korrekt geladen wird.
+2. **Fehlerbehandlung unbekannter Städte**: Prüft die Anzeige von Fehlermeldungen für unbekannte Städte.
+3. **Ladeindikator**: Stellt sicher, dass der Ladeindikator während des Datenabrufs angezeigt wird.
+4. **Wetterdaten-Anzeige**: Überprüft, ob Wetterdaten für eine gültige Stadt angezeigt werden.
+5. **Stadt-Aktualisierung**: Prüft, ob sich die Wetterdaten aktualisieren, wenn eine neue Stadt gesucht wird.
+6. **Schnelle Suchbehandlung**: Testet das Verhalten der Anwendung bei mehreren schnellen Suchvorgängen.
+
+### Hauptüberprüfungen
+- Vorhandensein und Funktionalität von Sucheingabe und -button.
+- Korrekte Anzeige von Fehlermeldungen.
+- Vorhandensein des Ladeindikators während des Datenabrufs.
+- Genaue Anzeige von Wetterdaten für verschiedene Städte.
+- Korrekte Behandlung mehrerer aufeinanderfolgender Suchen.
+
+## Fazit
+Diese umfassende Testsuite deckt sowohl Unit-Tests einzelner Komponenten als auch End-to-End-Tests der gesamten Anwendung ab. Sie gewährleistet die Zuverlässigkeit und Korrektheit der Funktionalität der Wetter-App, einschließlich Datenabruf, Fehlerbehandlung und Aktualisierungen der Benutzeroberfläche.
+
