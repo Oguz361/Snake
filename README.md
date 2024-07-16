@@ -93,22 +93,34 @@ Einhaltung von Clean Code-Prinzipien und Kommentierung, um den Code verständlic
 
 ## Inhaltsverzeichnis
 1. [Einleitung](#einleitung)
-2. [WeatherApp Komponententests](#weatherapp-komponententests)
+2. [Installation der Testbibliotheken](#installation-der-testbibliotheken)
+3. [WeatherApp Komponententests](#weatherapp-komponententests)
    1. [Test-Suite-Einrichtung](#test-suite-einrichtung)
    2. [Testfälle](#testfälle)
    3. [Hauptüberprüfungen](#hauptüberprüfungen)
-3. [ComicSpeechBubble Komponententests](#comicspeechbubble-komponententests)
+4. [ComicSpeechBubble Komponententests](#comicspeechbubble-komponententests)
    1. [Test-Suite-Einrichtung](#test-suite-einrichtung-1)
    2. [Testfälle](#testfälle-1)
    3. [Hauptüberprüfungen](#hauptüberprüfungen-1)
-4. [End-to-End (E2E) Tests](#end-to-end-e2e-tests)
+5. [End-to-End (E2E) Tests](#end-to-end-e2e-tests)
    1. [Test-Suite-Einrichtung](#test-suite-einrichtung-2)
    2. [Testfälle](#testfälle-2)
    3. [Hauptüberprüfungen](#hauptüberprüfungen-2)
-5. [Fazit](#fazit)
+6. [Fazit](#fazit)
 
 ## Einleitung
+
 Dieses Dokument bietet einen Überblick über die Testsuiten für das Wetter-App-Projekt, einschließlich Unit-Tests für einzelne Komponenten und End-to-End (E2E) Tests für die gesamte Anwendung.
+
+## Installation der Testbibliotheken
+
+Bevor Sie mit den Tests beginnen, stellen Sie sicher, dass Sie die erforderlichen Testbibliotheken installiert haben. Führen Sie die folgenden Befehle in Ihrem Projektverzeichnis aus:
+
+# Installation von Jest und React Testing Library
+npm install --save-dev jest @testing-library/react @testing-library/jest-dom
+
+# Installation von Cypress für E2E-Tests
+npm install --save-dev cypress
 
 ## WeatherApp Komponententests
 Diese Tests konzentrieren sich auf die Haupt-`WeatherApp`-Komponente, die für das Abrufen und Anzeigen von Wetterdaten verantwortlich ist.
