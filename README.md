@@ -18,6 +18,7 @@ Die Comic Weather App ist eine Wetteranwendung, die aktuelle Wetterdaten und Vor
 
 2. **Abhängigkeiten installieren**
    - npm install
+   - npm install axios
 
 3. **API-Schlüssel konfigurieren**
    Erstelle eine .env Datei im Stammverzeichnis des Projekts.
@@ -38,6 +39,8 @@ Die Comic Weather App ist eine Wetteranwendung, die aktuelle Wetterdaten und Vor
    - npm run build
 
    Der Build wird im dist-Verzeichnis erstellt. Verwende einen HTTP-Server, um die Dateien im dist-Verzeichnis zu dienen und die Anwendung zu testen.
+
+# Funktionen/Oberflächen (Oguz Kaan Öztürk, 925670)
 
 ## Komponenten der Anwendung
 
@@ -65,9 +68,8 @@ These: Eine ansprechende und benutzerfreundliche Oberfläche verbessert die Benu
 
 **Ansatz:**
 
-    Verwendung eines comicartigen Designs mit animierten Hintergründen und Sprechblasen, um die App visuell ansprechend und einzigartig zu gestalten.
-
-    Einfache und intuitive Benutzeroberfläche, die es dem Nutzer ermöglicht, schnell und einfach Wetterdaten abzurufen.
+Verwendung eines comicartigen Designs mit animierten Hintergründen und Sprechblasen, um die App visuell ansprechend und einzigartig zu gestalten.
+Einfache und intuitive Benutzeroberfläche, die es dem Nutzer ermöglicht, schnell und einfach Wetterdaten abzurufen.
 
 2. **Effiziente Datenverarbeitung**
 
@@ -84,6 +86,6 @@ These: Eine gut strukturierte und modulare Codebasis erleichtert die Wartung und
 
 **Ansatz:**
 
-Trennung der verschiedenen Komponenten (AnimatedBackground, ComicSpeechBubble, WeatherApp, WeatherService) in separate Dateien, um eine klare Struktur und Verantwortlichkeit zu gewährleisten.
-Einhaltung von Clean Code-Prinzipien und umfassende Kommentierung, um den Code verständlich und leicht wartbar zu machen.
+Trennung der verschiedenen Komponenten (AnimatedBackground, ComicSpeechBubble, WeatherApp, WeatherService) in separate Dateien, um eine klare Struktur zu gewährleisten.
+Einhaltung von Clean Code-Prinzipien und Kommentierung, um den Code verständlich zu machen.
 
