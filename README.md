@@ -24,6 +24,7 @@ Die Comic Weather App ist eine Wetteranwendung, die aktuelle Wetterdaten und Vor
    Erstelle eine .env Datei im Stammverzeichnis des Projekts.
    Füge den folgenden Eintrag hinzu und ersetze YOUR_API_KEY_HERE durch deinen OpenWeatherMap API-Schlüssel:
    - VITE_OPENWEATHER_API_KEY=YOUR_API_KEY_HERE
+   (Ein API Key wurde als Kommentar in Moodle bereitegstellt)
    
 ## Build und Start der Anwendung
 
