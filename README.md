@@ -114,7 +114,7 @@ Dieses Dokument bietet einen Überblick über die Testsuiten für das Wetter-App
 
 ## Installation der Testbibliotheken
 
-Bevor Sie mit den Tests beginnen, stellen Sie sicher, dass Sie die erforderlichen Testbibliotheken installiert haben. Führen Sie die folgenden Befehle in Ihrem Projektverzeichnis aus:
+Bevor Sie mit den Tests beginnen, stellen Sie sicher, dass Sie die erforderlichen Testbibliotheken installiert haben, eigentlich sollte alles durch npm install installiert sein aber sie müssen vielleicht Jest local installieren:npx install jest /Führen Sie die restliche install Befehle nur dann aus, wenn was fehlt, sonst können sie die erstmal überspringen.
 
 # Installation von Jest und React Testing Library
 npm install --save-dev jest @testing-library/react @testing-library/jest-dom
@@ -123,7 +123,7 @@ npm install --save-dev jest @testing-library/react @testing-library/jest-dom
 npm install --save-dev cypress
 
 ## WeatherApp Komponententests
-Diese Tests konzentrieren sich auf die Haupt-`WeatherApp`-Komponente, die für das Abrufen und Anzeigen von Wetterdaten verantwortlich ist.
+Diese Tests konzentrieren sich auf die Haupt-`WeatherApp`-Komponente, die für das Abrufen und Anzeigen von Wetterdaten verantwortlich ist, mit dem Befehl:npm test führen sie die mit Test coverage aus.
 
 ### Test-Suite-Einrichtung
 - Die Tests verwenden React Testing Library und Jest.
