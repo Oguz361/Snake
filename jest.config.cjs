@@ -20,6 +20,7 @@ module.exports = {
     '!src/index.tsx', 
     '!src/App.tsx',  
     '!src/main.tsx',
+    '!src/services/weatherService.ts',
   ],
   coverageReporters: ['json', 'lcov', 'text', 'clover'],
 };

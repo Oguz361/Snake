@@ -89,7 +89,7 @@ These: Eine gut strukturierte und modulare Codebasis erleichtert die Wartung und
 Trennung der verschiedenen Komponenten (AnimatedBackground, ComicSpeechBubble, WeatherApp, WeatherService) in separate Dateien, um eine klare Struktur zu gewährleisten.
 Einhaltung von Clean Code-Prinzipien und Kommentierung, um den Code verständlich zu machen.
 
-# Wetter-App Testdokumentation
+# Wetter-App Testdokumentation(Muhammad Arif 926685)
 
 ## Inhaltsverzeichnis
 1. [Einleitung](#einleitung)
@@ -114,7 +114,7 @@ Dieses Dokument bietet einen Überblick über die Testsuiten für das Wetter-App
 
 ## Installation der Testbibliotheken
 
-Bevor Sie mit den Tests beginnen, stellen Sie sicher, dass Sie die erforderlichen Testbibliotheken installiert haben. Führen Sie die folgenden Befehle in Ihrem Projektverzeichnis aus:
+Bevor Sie mit den Tests beginnen, stellen Sie sicher, dass Sie die erforderlichen Testbibliotheken installiert haben, eigentlich sollte alles durch npm install installiert sein aber sie müssen vielleicht Jest local installieren:npx install jest /Führen Sie die restliche install Befehle nur dann aus, wenn was fehlt, sonst können sie die erstmal überspringen.
 
 # Installation von Jest und React Testing Library
 npm install --save-dev jest @testing-library/react @testing-library/jest-dom
@@ -123,7 +123,7 @@ npm install --save-dev jest @testing-library/react @testing-library/jest-dom
 npm install --save-dev cypress
 
 ## WeatherApp Komponententests
-Diese Tests konzentrieren sich auf die Haupt-`WeatherApp`-Komponente, die für das Abrufen und Anzeigen von Wetterdaten verantwortlich ist.
+Diese Tests konzentrieren sich auf die Haupt-`WeatherApp`-Komponente, die für das Abrufen und Anzeigen von Wetterdaten verantwortlich ist, mit dem Befehl:npm test führen sie die mit Test coverage aus.
 
 ### Test-Suite-Einrichtung
 - Die Tests verwenden React Testing Library und Jest.
@@ -189,4 +189,213 @@ Diese Tests decken den gesamten Anwendungsablauf ab, simulieren Benutzerinterakt
 
 ## Fazit
 Diese umfassende Testsuite deckt sowohl Unit-Tests einzelner Komponenten als auch End-to-End-Tests der gesamten Anwendung ab. Sie gewährleistet die Zuverlässigkeit und Korrektheit der Funktionalität der Wetter-App, einschließlich Datenabruf, Fehlerbehandlung und Aktualisierungen der Benutzeroberfläche.
+
+# Dokumentation für die Bereitstellung / Deployement der Wetter-App über AWS Amplify (Ibrahima Camara 928727)
+
+
+
+## Inhaltsverzeichnis
+1. [Einführung](#einführung)
+2. [Voraussetzungen](#voraussetzungen)
+3. [Einrichten von AWS Amplify](#einrichten-von-aws-amplify)
+4. [Erstellen und Konfigurieren der Wetter-App](#erstellen-und-konfigurieren-der-wetter-app)
+5. [Bereitstellen der Wetter-App](#bereitstellen-der-wetter-app)
+6. [Verwalten der Wetter-App](#verwalten-der-wetter-app)
+7. [Fehlerbehebung](#fehlerbehebung)
+8. [Ressourcen](#ressourcen)
+
+## Einführung
+Diese Dokumentation beschreibt die Schritte zur Bereitstellung der Wetter-App über AWS Amplify unter Verwendung von Visual Studio Code . Der Quellcode der Anwendung befindet sich im [GitHub-Repository](https://github.com/Oguz361/Weather-App).
+
+Die bereitgestellte Wetter-App ist unter folgender URL erreichbar: [Wetter-App](https://main.dgfjo542tgblv.amplifyapp.com/).
+
+## Voraussetzungen
+Bevor Sie beginnen, stellen Sie sicher, dass Sie die folgenden Tools und Konten eingerichtet haben:
+- Ein AWS-Konto
+- AWS CLI installiert und konfiguriert
+- Node.js und npm installiert
+- Visual Studio Code installiert
+- Git installiert
+- Ein Klon des Repositories der Wetter-App:
+    ```sh
+    git clone https://github.com/Oguz361/Weather-App
+    cd Weather-App
+    ```
+
+## Einrichten von AWS Amplify
+1. **AWS CLI Konfiguration**: Öffnen Sie die Eingabeaufforderung (cmd) und führen Sie den Befehl `aws configure` aus. Geben Sie Ihre AWS-Zugangsschlüssel und den gewünschten Standardregion-Code ein.
+    ```sh
+    aws configure
+    ```
+
+2. **Amplify CLI installieren**: Installieren Sie die Amplify CLI global mit npm.
+    ```sh
+    npm install -g @aws-amplify/cli
+    ```
+
+3. **Amplify CLI initialisieren**: Navigieren Sie zu Ihrem Projektordner und führen Sie den Initialisierungsbefehl aus.
+    ```sh
+    amplify init
+    ```
+
+    Folgen Sie den Anweisungen und wählen Sie die entsprechenden Optionen für Ihr Projekt.
+
+## Erstellen und Konfigurieren der Wetter-App
+1. **Projekt initialisieren**:
+    ```sh
+    amplify init
+    ```
+
+    Folgen Sie den Anweisungen, um Ihr Projekt mit Amplify zu verbinden. Wählen Sie beispielsweise Ihre bevorzugten Einstellungen für Editor (Visual Studio Code) und Programmiersprache (JavaScript).
+
+2. **Hinzufügen von Kategorien zu Ihrem Amplify-Projekt**:
+    Zum Beispiel, um Hosting hinzuzufügen:
+    ```sh
+    amplify add hosting
+    ```
+
+    Wählen Sie die gewünschten Hosting-Optionen (z.B. Amazon S3 and CloudFront) und folgen Sie den Anweisungen zur Konfiguration.
+
+## Bereitstellen der Wetter-App
+1. **Hosting hinzufügen und veröffentlichen**:
+    ```sh
+    amplify add hosting
+    amplify publish
+    ```
+
+    Wählen Sie die Hosting-Optionen und folgen Sie den Anweisungen zur Bereitstellung.
+
+2. **Build und Deployment**: AWS Amplify wird die Anwendung bauen und bereitstellen. Nach erfolgreicher Bereitstellung erhalten Sie eine URL, unter der Ihre Wetter-App erreichbar ist.
+
+## Verwalten der Wetter-App
+1. **Updates bereitstellen**:
+    Nach Änderungen an Ihrer Anwendung können Sie die Änderungen mit folgendem Befehl bereitstellen:
+    ```sh
+    amplify publish
+    ```
+
+2. **Umgebungen verwalten**: Sie können verschiedene Umgebungen für Ihre Anwendung erstellen und verwalten (z.B. Entwicklungs- und Produktionsumgebungen).
+    ```sh
+    amplify env add
+    amplify env checkout <environment-name>
+    ```
+
+## Fehlerbehebung
+1. **Fehlerprotokolle überprüfen**: Bei Problemen während der Bereitstellung oder Nutzung der Anwendung können Sie die Protokolle in der AWS Amplify-Konsole überprüfen.
+2. **Amplify CLI Fehler beheben**: Stellen Sie sicher, dass Ihre AWS CLI und Amplify CLI auf dem neuesten Stand sind.
+    ```sh
+    npm update -g @aws-amplify/cli
+    ```
+
+3. **Gemeinsame Probleme**: Überprüfen Sie häufige Probleme und Lösungen in der [AWS Amplify Dokumentation](https://docs.amplify.aws/).
+
+## Ressourcen
+- [AWS Amplify Dokumentation](https://docs.amplify.aws/)
+- [AWS CLI Dokumentation](https://docs.aws.amazon.com/cli/)
+- [Node.js und npm Dokumentation](https://nodejs.org/)
+- [Visual Studio Code Dokumentation](https://code.visualstudio.com/docs)
+- [Git Dokumentation](https://git-scm.com/doc)
+
+# Dokumentation für die Bereitstellung / Deployen der Wetter-App über Vercel (Ibrahima Camara 928727)
+
+## Inhaltsverzeichnis
+1. [Einführung](#einführung)
+2. [Voraussetzungen](#voraussetzungen)
+3. [Einrichten von Vercel](#einrichten-von-vercel)
+4. [Erstellen und Konfigurieren der Wetter-App](#erstellen-und-konfigurieren-der-wetter-app)
+5. [Bereitstellen der Wetter-App](#bereitstellen-der-wetter-app)
+6. [Verwalten der Wetter-App](#verwalten-der-wetter-app)
+7. [Fehlerbehebung](#fehlerbehebung)
+8. [Ressourcen](#ressourcen)
+
+## Einführung
+Diese Dokumentation beschreibt die Schritte zur Bereitstellung der Wetter-App über Vercel unter Verwendung von Visual Studio Code  Der Quellcode der Anwendung befindet sich im [GitHub-Repository](https://github.com/Oguz361/Weather-App).
+
+## Voraussetzungen
+Bevor Sie beginnen, stellen Sie sicher, dass Sie die folgenden Tools und Konten eingerichtet haben:
+- Ein Vercel-Konto
+- Node.js und npm installiert
+- Visual Studio Code installiert
+- Git installiert
+- Ein Klon des Repositories der Wetter-App:
+    ```sh
+    git clone https://github.com/Oguz361/Weather-App
+    cd Weather-App
+    ```
+
+## Einrichten von Vercel
+1. **Vercel CLI installieren**: Installieren Sie die Vercel CLI global mit npm.
+    ```sh
+    npm install -g vercel
+    ```
+
+2. **Vercel CLI initialisieren**: Navigieren Sie zu Ihrem Projektordner und führen Sie den Initialisierungsbefehl aus.
+    ```sh
+    vercel login
+    ```
+
+    Folgen Sie den Anweisungen, um sich bei Ihrem Vercel-Konto anzumelden.
+
+## Erstellen und Konfigurieren der Wetter-App
+1. **Projekt initialisieren**:
+    - Klonen Sie das Repository und navigieren Sie in den Projektordner:
+    ```sh
+    git clone https://github.com/Oguz361/Weather-App
+    cd Weather-App
+    ```
+
+2. **Abhängigkeiten installieren**:
+    - Installieren Sie die benötigten npm-Pakete:
+    ```sh
+    npm install
+    ```
+
+3. **Umgebungsvariablen konfigurieren**:
+    - Erstellen Sie eine `.env`-Datei im Stammverzeichnis des Projekts und fügen Sie Ihre API-Schlüssel und andere Umgebungsvariablen hinzu:
+    ```plaintext
+    REACT_APP_API_KEY=IhrAPIKey
+    ```
+
+## Bereitstellen der Wetter-App
+1. **Bereitstellung mit Vercel**:
+    - Führen Sie den Befehl `vercel` im Stammverzeichnis Ihres Projekts aus:
+    ```sh
+    vercel
+    ```
+
+    Folgen Sie den Anweisungen, um die Bereitstellung abzuschließen. Wählen Sie ggf. Ihr Vercel-Projekt und die gewünschten Konfigurationsoptionen.
+
+2. **Bestätigung der Bereitstellung**:
+    - Nach erfolgreicher Bereitstellung erhalten Sie eine URL, unter der Ihre Wetter-App erreichbar ist.
+
+## Verwalten der Wetter-App
+1. **Updates bereitstellen**:
+    - Nach Änderungen an Ihrer Anwendung können Sie die Änderungen mit folgendem Befehl bereitstellen:
+    ```sh
+    vercel --prod
+    ```
+
+2. **Umgebungsvariablen verwalten**:
+    - Sie können Umgebungsvariablen direkt in der Vercel-Weboberfläche verwalten oder mithilfe der Vercel CLI:
+    ```sh
+    vercel env add <variable-name> <variable-value>
+    ```
+
+## Fehlerbehebung
+1. **Fehlerprotokolle überprüfen**: Bei Problemen während der Bereitstellung oder Nutzung der Anwendung können Sie die Protokolle in der Vercel-Konsole überprüfen.
+2. **Vercel CLI Fehler beheben**: Stellen Sie sicher, dass Ihre Vercel CLI auf dem neuesten Stand ist.
+    ```sh
+    npm update -g vercel
+    ```
+
+3. **Gemeinsame Probleme**: Überprüfen Sie häufige Probleme und Lösungen in der [Vercel Dokumentation](https://vercel.com/docs).
+
+## Ressourcen
+- [Vercel Dokumentation](https://vercel.com/docs)
+- [Node.js und npm Dokumentation](https://nodejs.org/)
+- [Visual Studio Code Dokumentation](https://code.visualstudio.com/docs)
+- [Git Dokumentation](https://git-scm.com/doc)
+- [GitHub Repository der Wetter-App](https://github.com/Oguz361/Weather-App)
+
+
 
