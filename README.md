@@ -296,7 +296,7 @@ Bevor Sie beginnen, stellen Sie sicher, dass Sie die folgenden Tools und Konten 
 - [Visual Studio Code Dokumentation](https://code.visualstudio.com/docs)
 - [Git Dokumentation](https://git-scm.com/doc)
 
-# Dokumentation für die Bereitstellung der Wetter-App über Vercel (Ibrahima Camara 928727)
+# Dokumentation für die Bereitstellung / Deployen der Wetter-App über Vercel (Ibrahima Camara 928727)
 
 ## Inhaltsverzeichnis
 1. [Einführung](#einführung)
