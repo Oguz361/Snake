@@ -190,7 +190,7 @@ Diese Tests decken den gesamten Anwendungsablauf ab, simulieren Benutzerinterakt
 ## Fazit
 Diese umfassende Testsuite deckt sowohl Unit-Tests einzelner Komponenten als auch End-to-End-Tests der gesamten Anwendung ab. Sie gewährleistet die Zuverlässigkeit und Korrektheit der Funktionalität der Wetter-App, einschließlich Datenabruf, Fehlerbehandlung und Aktualisierungen der Benutzeroberfläche.
 
-# Dokumentation für die Bereitstellung der Wetter-App über AWS Amplify (Ibrahima Camara 928727)
+# Dokumentation für die Bereitstellung / Deployement der Wetter-App über AWS Amplify (Ibrahima Camara 928727)
 
 
 
