@@ -296,5 +296,106 @@ Bevor Sie beginnen, stellen Sie sicher, dass Sie die folgenden Tools und Konten 
 - [Visual Studio Code Dokumentation](https://code.visualstudio.com/docs)
 - [Git Dokumentation](https://git-scm.com/doc)
 
+# Dokumentation für die Bereitstellung der Wetter-App über Vercel (Ibrahima Camara 928727)
+
+## Inhaltsverzeichnis
+1. [Einführung](#einführung)
+2. [Voraussetzungen](#voraussetzungen)
+3. [Einrichten von Vercel](#einrichten-von-vercel)
+4. [Erstellen und Konfigurieren der Wetter-App](#erstellen-und-konfigurieren-der-wetter-app)
+5. [Bereitstellen der Wetter-App](#bereitstellen-der-wetter-app)
+6. [Verwalten der Wetter-App](#verwalten-der-wetter-app)
+7. [Fehlerbehebung](#fehlerbehebung)
+8. [Ressourcen](#ressourcen)
+
+## Einführung
+Diese Dokumentation beschreibt die Schritte zur Bereitstellung der Wetter-App über Vercel unter Verwendung von Visual Studio Code  Der Quellcode der Anwendung befindet sich im [GitHub-Repository](https://github.com/Oguz361/Weather-App).
+
+## Voraussetzungen
+Bevor Sie beginnen, stellen Sie sicher, dass Sie die folgenden Tools und Konten eingerichtet haben:
+- Ein Vercel-Konto
+- Node.js und npm installiert
+- Visual Studio Code installiert
+- Git installiert
+- Ein Klon des Repositories der Wetter-App:
+    ```sh
+    git clone https://github.com/Oguz361/Weather-App
+    cd Weather-App
+    ```
+
+## Einrichten von Vercel
+1. **Vercel CLI installieren**: Installieren Sie die Vercel CLI global mit npm.
+    ```sh
+    npm install -g vercel
+    ```
+
+2. **Vercel CLI initialisieren**: Navigieren Sie zu Ihrem Projektordner und führen Sie den Initialisierungsbefehl aus.
+    ```sh
+    vercel login
+    ```
+
+    Folgen Sie den Anweisungen, um sich bei Ihrem Vercel-Konto anzumelden.
+
+## Erstellen und Konfigurieren der Wetter-App
+1. **Projekt initialisieren**:
+    - Klonen Sie das Repository und navigieren Sie in den Projektordner:
+    ```sh
+    git clone https://github.com/Oguz361/Weather-App
+    cd Weather-App
+    ```
+
+2. **Abhängigkeiten installieren**:
+    - Installieren Sie die benötigten npm-Pakete:
+    ```sh
+    npm install
+    ```
+
+3. **Umgebungsvariablen konfigurieren**:
+    - Erstellen Sie eine `.env`-Datei im Stammverzeichnis des Projekts und fügen Sie Ihre API-Schlüssel und andere Umgebungsvariablen hinzu:
+    ```plaintext
+    REACT_APP_API_KEY=IhrAPIKey
+    ```
+
+## Bereitstellen der Wetter-App
+1. **Bereitstellung mit Vercel**:
+    - Führen Sie den Befehl `vercel` im Stammverzeichnis Ihres Projekts aus:
+    ```sh
+    vercel
+    ```
+
+    Folgen Sie den Anweisungen, um die Bereitstellung abzuschließen. Wählen Sie ggf. Ihr Vercel-Projekt und die gewünschten Konfigurationsoptionen.
+
+2. **Bestätigung der Bereitstellung**:
+    - Nach erfolgreicher Bereitstellung erhalten Sie eine URL, unter der Ihre Wetter-App erreichbar ist.
+
+## Verwalten der Wetter-App
+1. **Updates bereitstellen**:
+    - Nach Änderungen an Ihrer Anwendung können Sie die Änderungen mit folgendem Befehl bereitstellen:
+    ```sh
+    vercel --prod
+    ```
+
+2. **Umgebungsvariablen verwalten**:
+    - Sie können Umgebungsvariablen direkt in der Vercel-Weboberfläche verwalten oder mithilfe der Vercel CLI:
+    ```sh
+    vercel env add <variable-name> <variable-value>
+    ```
+
+## Fehlerbehebung
+1. **Fehlerprotokolle überprüfen**: Bei Problemen während der Bereitstellung oder Nutzung der Anwendung können Sie die Protokolle in der Vercel-Konsole überprüfen.
+2. **Vercel CLI Fehler beheben**: Stellen Sie sicher, dass Ihre Vercel CLI auf dem neuesten Stand ist.
+    ```sh
+    npm update -g vercel
+    ```
+
+3. **Gemeinsame Probleme**: Überprüfen Sie häufige Probleme und Lösungen in der [Vercel Dokumentation](https://vercel.com/docs).
+
+## Ressourcen
+- [Vercel Dokumentation](https://vercel.com/docs)
+- [Node.js und npm Dokumentation](https://nodejs.org/)
+- [Visual Studio Code Dokumentation](https://code.visualstudio.com/docs)
+- [Git Dokumentation](https://git-scm.com/doc)
+- [GitHub Repository der Wetter-App](https://github.com/Oguz361/Weather-App)
+
 
 
