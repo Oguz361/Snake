@@ -190,3 +190,111 @@ Diese Tests decken den gesamten Anwendungsablauf ab, simulieren Benutzerinterakt
 ## Fazit
 Diese umfassende Testsuite deckt sowohl Unit-Tests einzelner Komponenten als auch End-to-End-Tests der gesamten Anwendung ab. Sie gewährleistet die Zuverlässigkeit und Korrektheit der Funktionalität der Wetter-App, einschließlich Datenabruf, Fehlerbehandlung und Aktualisierungen der Benutzeroberfläche.
 
+# Dokumentation für die Bereitstellung der Wetter-App über AWS Amplify (Ibrahima Camara 928727)
+
+
+
+## Inhaltsverzeichnis
+1. [Einführung](#einführung)
+2. [Voraussetzungen](#voraussetzungen)
+3. [Einrichten von AWS Amplify](#einrichten-von-aws-amplify)
+4. [Erstellen und Konfigurieren der Wetter-App](#erstellen-und-konfigurieren-der-wetter-app)
+5. [Bereitstellen der Wetter-App](#bereitstellen-der-wetter-app)
+6. [Verwalten der Wetter-App](#verwalten-der-wetter-app)
+7. [Fehlerbehebung](#fehlerbehebung)
+8. [Ressourcen](#ressourcen)
+
+## Einführung
+Diese Dokumentation beschreibt die Schritte zur Bereitstellung der Wetter-App über AWS Amplify unter Verwendung von Visual Studio Code . Der Quellcode der Anwendung befindet sich im [GitHub-Repository](https://github.com/Oguz361/Weather-App).
+
+Die bereitgestellte Wetter-App ist unter folgender URL erreichbar: [Wetter-App](https://main.dgfjo542tgblv.amplifyapp.com/).
+
+## Voraussetzungen
+Bevor Sie beginnen, stellen Sie sicher, dass Sie die folgenden Tools und Konten eingerichtet haben:
+- Ein AWS-Konto
+- AWS CLI installiert und konfiguriert
+- Node.js und npm installiert
+- Visual Studio Code installiert
+- Git installiert
+- Ein Klon des Repositories der Wetter-App:
+    ```sh
+    git clone https://github.com/Oguz361/Weather-App
+    cd Weather-App
+    ```
+
+## Einrichten von AWS Amplify
+1. **AWS CLI Konfiguration**: Öffnen Sie die Eingabeaufforderung (cmd) und führen Sie den Befehl `aws configure` aus. Geben Sie Ihre AWS-Zugangsschlüssel und den gewünschten Standardregion-Code ein.
+    ```sh
+    aws configure
+    ```
+
+2. **Amplify CLI installieren**: Installieren Sie die Amplify CLI global mit npm.
+    ```sh
+    npm install -g @aws-amplify/cli
+    ```
+
+3. **Amplify CLI initialisieren**: Navigieren Sie zu Ihrem Projektordner und führen Sie den Initialisierungsbefehl aus.
+    ```sh
+    amplify init
+    ```
+
+    Folgen Sie den Anweisungen und wählen Sie die entsprechenden Optionen für Ihr Projekt.
+
+## Erstellen und Konfigurieren der Wetter-App
+1. **Projekt initialisieren**:
+    ```sh
+    amplify init
+    ```
+
+    Folgen Sie den Anweisungen, um Ihr Projekt mit Amplify zu verbinden. Wählen Sie beispielsweise Ihre bevorzugten Einstellungen für Editor (Visual Studio Code) und Programmiersprache (JavaScript).
+
+2. **Hinzufügen von Kategorien zu Ihrem Amplify-Projekt**:
+    Zum Beispiel, um Hosting hinzuzufügen:
+    ```sh
+    amplify add hosting
+    ```
+
+    Wählen Sie die gewünschten Hosting-Optionen (z.B. Amazon S3 and CloudFront) und folgen Sie den Anweisungen zur Konfiguration.
+
+## Bereitstellen der Wetter-App
+1. **Hosting hinzufügen und veröffentlichen**:
+    ```sh
+    amplify add hosting
+    amplify publish
+    ```
+
+    Wählen Sie die Hosting-Optionen und folgen Sie den Anweisungen zur Bereitstellung.
+
+2. **Build und Deployment**: AWS Amplify wird die Anwendung bauen und bereitstellen. Nach erfolgreicher Bereitstellung erhalten Sie eine URL, unter der Ihre Wetter-App erreichbar ist.
+
+## Verwalten der Wetter-App
+1. **Updates bereitstellen**:
+    Nach Änderungen an Ihrer Anwendung können Sie die Änderungen mit folgendem Befehl bereitstellen:
+    ```sh
+    amplify publish
+    ```
+
+2. **Umgebungen verwalten**: Sie können verschiedene Umgebungen für Ihre Anwendung erstellen und verwalten (z.B. Entwicklungs- und Produktionsumgebungen).
+    ```sh
+    amplify env add
+    amplify env checkout <environment-name>
+    ```
+
+## Fehlerbehebung
+1. **Fehlerprotokolle überprüfen**: Bei Problemen während der Bereitstellung oder Nutzung der Anwendung können Sie die Protokolle in der AWS Amplify-Konsole überprüfen.
+2. **Amplify CLI Fehler beheben**: Stellen Sie sicher, dass Ihre AWS CLI und Amplify CLI auf dem neuesten Stand sind.
+    ```sh
+    npm update -g @aws-amplify/cli
+    ```
+
+3. **Gemeinsame Probleme**: Überprüfen Sie häufige Probleme und Lösungen in der [AWS Amplify Dokumentation](https://docs.amplify.aws/).
+
+## Ressourcen
+- [AWS Amplify Dokumentation](https://docs.amplify.aws/)
+- [AWS CLI Dokumentation](https://docs.aws.amazon.com/cli/)
+- [Node.js und npm Dokumentation](https://nodejs.org/)
+- [Visual Studio Code Dokumentation](https://code.visualstudio.com/docs)
+- [Git Dokumentation](https://git-scm.com/doc)
+
+
+
